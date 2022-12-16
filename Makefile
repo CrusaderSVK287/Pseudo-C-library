@@ -1,12 +1,23 @@
 CC = gcc
-CFLAGS = -Wall -Werror -std=c11
+CFLAGS = -Wall -Werror
+
+ifeq "$(CC)" "gcc"
+CFLAGS += -std=c11
+endif
 
 EXAMPLEDIR = examples/
 EXECUTABLE = program
 
 CCOMMAND = $(CC) $< $(CFLAGS) -o $(EXECUTABLE)
 
-all: ifelse operators function loops switch operations bubblesort
+all: --buildbegin ifelse operators function loops switch operations bubblesort
+
+--buildbegin:
+ifeq "$(CC)" "gcc"
+	@echo "----- Running C examples -----"
+else
+	@echo "----- Running C++ examples -----"
+endif
 
 ifelse: $(EXAMPLEDIR)ifelse.c
 	@$(CCOMMAND)
@@ -49,3 +60,6 @@ bubblesort: $(EXAMPLEDIR)bubblesort.c
 	@echo --- $@ ---
 	@./$(EXECUTABLE)
 	@rm ./$(EXECUTABLE)
+
+cpp:
+	@make CC=g++ --no-print-directory

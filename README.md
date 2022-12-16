@@ -6,3 +6,7 @@ See examples for sample code
 
 ## Why?
 * Why the f*ck not?
+
+## How to run examples?
+For C language   : `make`
+For C++ language : `make cpp`
