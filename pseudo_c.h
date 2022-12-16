@@ -1,8 +1,13 @@
 /*
  * Esoteric pseudocode mini-library for C language. Version 1.
- * I have no idea why you would want to use something like this but wahtever
+ * I have no idea why you would want to use something like this but whatever
  * In case someone doesn't get it: This library is made as a joke,
  * don't take it too seriously... or do, I don't care to be honest.
+ * See examples here:
+ * https://github.com/CrusaderSVK287/Pseudo-C-library/tree/master/examples.
+ * Run "make" in command line to compile and run all examples or
+ * "make example_name", see makefile
+ * to understand how the "library" works. As licence says:
  *
  *           DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
  *                  Version 2, December 2004
