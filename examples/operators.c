@@ -20,4 +20,9 @@ int main()
         ) ELSE (
                 puts("correct");
         )
+
+        int a = 5;
+        IF (INCREMENT a == 6) THEN(
+                puts("a is 6");
+        )
 }

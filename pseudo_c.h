@@ -27,7 +27,7 @@
 #ifndef PSEUDO_C_H
 #define PSEUDO_C_H
 
-#ifdef cplusplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -46,6 +46,18 @@ extern "C" {
 #define IS_MORE                         >
 #define IS_LESS_OR_EQUAL                <=
 #define IS_MORE_OR_EQUAL                >=
+#define INCREMENT                       ++
+#define DECREMENT                       --
+
+/* Variable definition and value set */
+
+/* __auto_type is not defined in c++ */
+#ifndef __cplusplus
+#define LET(_NAME, _VAL)                __auto_type _NAME = _VAL;
+#endif /* __cplusplus */
+
+#define SET(_A)                         _A
+#define TO(_B)                          = _B;
 
 /* If else statements */
 #define IF(_COND) 			if (_COND)
@@ -69,16 +81,13 @@ extern "C" {
 /* Operations */
 #define SWAP(_A, _B)			{int _t = _A; _A = _B; _B = _t;}
 
-#define SET(_A)                         _A
-#define TO(_B)                          = _B;
-
 #define INCREASE(_A)                    _A +=
 #define DECREASE(_A)                    _A -=
 #define MULTIPLY(_A)                    _A *=
 #define DIVIDE(_A)                      _A /=
 #define BY(_B)                          _B;
 
-#ifdef cplusplus
+#ifdef __cplusplus
 }
 #endif
 
