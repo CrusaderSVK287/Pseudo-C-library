@@ -10,7 +10,8 @@ EXECUTABLE = program
 
 CCOMMAND = $(CC) $< $(CFLAGS) -o $(EXECUTABLE)
 
-all: --buildbegin ifelse operators function loops switch operations bubblesort
+all: --buildbegin
+	@make ifelse operators function loops switch operations bubblesort --no-print-directory
 
 --buildbegin:
 ifeq "$(CC)" "gcc"
@@ -19,43 +20,7 @@ else
 	@echo "----- Running C++ examples -----"
 endif
 
-ifelse: $(EXAMPLEDIR)ifelse.c
-	@$(CCOMMAND)
-	@echo --- $@ ---
-	@./$(EXECUTABLE)
-	@rm ./$(EXECUTABLE)
-
-operators: $(EXAMPLEDIR)operators.c
-	@$(CCOMMAND)
-	@echo --- $@ ---
-	@./$(EXECUTABLE)
-	@rm ./$(EXECUTABLE)
-
-function: $(EXAMPLEDIR)function.c
-	@$(CCOMMAND)
-	@echo --- $@ ---
-	@./$(EXECUTABLE)
-	@rm ./$(EXECUTABLE)
-
-loops: $(EXAMPLEDIR)loops.c
-	@$(CCOMMAND)
-	@echo --- $@ ---
-	@./$(EXECUTABLE)
-	@rm ./$(EXECUTABLE)
-
-switch: $(EXAMPLEDIR)switch.c
-	@$(CCOMMAND)
-	@echo --- $@ ---
-	@./$(EXECUTABLE)
-	@rm ./$(EXECUTABLE)
-
-operations: $(EXAMPLEDIR)operations.c
-	@$(CCOMMAND)
-	@echo --- $@ ---
-	@./$(EXECUTABLE)
-	@rm ./$(EXECUTABLE)
-
-bubblesort: $(EXAMPLEDIR)bubblesort.c
+%: $(EXAMPLEDIR)%.c
 	@$(CCOMMAND)
 	@echo --- $@ ---
 	@./$(EXECUTABLE)

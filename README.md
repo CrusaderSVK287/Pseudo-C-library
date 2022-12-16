@@ -8,5 +8,6 @@ See examples for sample code
 * Why the f*ck not?
 
 ## How to run examples?
-For C language   : `make`
-For C++ language : `make cpp`
+- For C language     : `make`
+- For C++ language   : `make cpp`
+- Or particular file : `make name_of_file` (e.g. `make bubblesort`)
